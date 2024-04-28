@@ -23,7 +23,7 @@ def predict_price(df_test, row_index):
 
 if __name__ == "__main__":
 
-    df_test = pd.read_csv('https://raw.githubusercontent.com/davidzarruk/MIAD_ML_NLP_2023/main/datasets/dataTest_carListings.zip', index_col=0)  # Cambia la ruta si el archivo está en otro lugar
+    df_test = pd.read_csv('https://raw.githubusercontent.com/davidzarruk/MIAD_ML_NLP_2023/main/datasets/dataTest_carListings.zip', index_col=0) 
 
     if len(sys.argv) == 1:
         print('Por favor ingrese un número de ID para evaluar en el conjunto de TEST')
