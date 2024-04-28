@@ -36,13 +36,13 @@ class CarPriceApi(Resource):
     @api.marshal_with(resource_fields)
     def get(self):
         args = parser.parse_args()
-        row_index = args['ID']
+        indice = args['ID']
         
         # Cargamos el conjunto de datos de prueba
         df_test = pd.read_csv('https://raw.githubusercontent.com/davidzarruk/MIAD_ML_NLP_2023/main/datasets/dataTest_carListings.zip', index_col=0)  
 
         try:
-            prediction = predict_price(df_test, row_index)
+            prediction = predict_price(df_test, indice)
             return {"Predicción": prediction[0]}, 200
         except Exception as e:
             api.abort(404, f"Error: {str(e)}")
