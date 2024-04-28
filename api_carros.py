@@ -10,24 +10,24 @@ CORS(app)
 api = Api(
     app,
     version='1.0',
-    title='Car Price Prediction API',
-    description='API to predict car prices'
+    title='API PREDICCIÓN DE CARROS GRUPO 14 MIAD',
+    description='Esta es una API que utiliza un modelo de regresión lineal simple para predecir el precio de un carro'
 )
 
 ns = api.namespace('predict',
-                   description='Car Price Predictor')
+                   description='Predictor precio del carro')
 
 parser = api.parser()
 parser.add_argument(
-    'row_index',
+    'ID',
     type=int,
     required=True,
-    help='Row index of the test dataset to predict the car price',
+    help='Introduzca el número del ID del conjunto de TEST que desea predecir con nuestro modelo',
     location='args'
 )
 
 resource_fields = api.model('Resource', {
-    'result': fields.Float,
+    'Predicción': fields.Float,
 })
 
 @ns.route('/')
@@ -36,14 +36,14 @@ class CarPriceApi(Resource):
     @api.marshal_with(resource_fields)
     def get(self):
         args = parser.parse_args()
-        row_index = args['row_index']
+        row_index = args['ID']
         
         # Cargamos el conjunto de datos de prueba
-        df_test = pd.read_csv('https://raw.githubusercontent.com/davidzarruk/MIAD_ML_NLP_2023/main/datasets/dataTest_carListings.zip', index_col=0)  # Asegúrate de tener el archivo en el directorio correcto
+        df_test = pd.read_csv('https://raw.githubusercontent.com/davidzarruk/MIAD_ML_NLP_2023/main/datasets/dataTest_carListings.zip', index_col=0)  
 
         try:
             prediction = predict_price(df_test, row_index)
-            return {"result": prediction[0]}, 200
+            return {"Predicción": prediction[0]}, 200
         except Exception as e:
             api.abort(404, f"Error: {str(e)}")
 
