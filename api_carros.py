@@ -11,7 +11,7 @@ api = Api(
     app,
     version='1.0',
     title='API PREDICCIÓN DE CARROS GRUPO 14 MIAD',
-    description='Esta es una API que utiliza un modelo de regresión lineal simple para predecir el precio de un carro'
+    description='Esta es una API que utiliza un modelo de regresión lineal simple para predecir el precio de un carro, usted puede probar cuantas veces quiera y la cantidad de ID que desee'
 )
 
 ns = api.namespace('predict',
