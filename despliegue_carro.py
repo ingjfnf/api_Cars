@@ -13,7 +13,7 @@ def predict_price(df_test, row_index):
     # Seleccionamos la fila que queremos predecir
     input_data = df_test.iloc[[row_index]]
     
-    # Aplicamos la transformación al dato de entrada usando el transformador ajustado
+    # Aplicamos la transformación al dato de entrada usando el transformador 
     input_transformed = transformador.transform(input_data)
 
     # Hacemos la predicción
@@ -22,8 +22,8 @@ def predict_price(df_test, row_index):
     return precio_predicho
 
 if __name__ == "__main__":
-    # Carga del conjunto de datos de prueba
-    df_test = pd.read_csv('dataTest_carListings.csv', index_col=0)  # Cambia la ruta si el archivo está en otro lugar
+
+    df_test = pd.read_csv('https://raw.githubusercontent.com/davidzarruk/MIAD_ML_NLP_2023/main/datasets/dataTest_carListings.zip', index_col=0)  # Cambia la ruta si el archivo está en otro lugar
 
     if len(sys.argv) == 1:
         print('Por favor ingrese un número de ID para evaluar en el conjunto de TEST')
