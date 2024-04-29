@@ -22,7 +22,7 @@ parser.add_argument(
     'ID',
     type=int,
     required=True,
-    help='Introduzca el número del ID del conjunto de TEST que desea predecir con nuestro modelo',
+    help='Introduzca el número del ID del conjunto de TEST que desea predecir con nuestro modelo, recuerdo que el número del ID debe estar entre 0 y 99999',
     location='args'
 )
 
